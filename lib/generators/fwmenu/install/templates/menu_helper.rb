@@ -1,5 +1,5 @@
 module <%= class_name %>Helper
-  def get_<%= table_name %>_for
-    <%= class_name %>.all
+  def get_menus_for
+    <%= class_name %>.where(published: true)
   end
 end

@@ -3,7 +3,8 @@ class Create<%= table_name.camelize %> < ActiveRecord::Migration
     create_table :<%= table_name %> do |t|
       t.string   "title"
       t.text     "description"
-      t.string   "position"  
+      t.string   "position" 
+      t.booleean "published" 
       t.timestamps
     end
   end

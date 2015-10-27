@@ -1,3 +1,3 @@
 class <%= class_name %> < ActiveRecord::Base
-	validates :title, :description, :position, presence: true
+	validates :title, :description, presence: true
 end
