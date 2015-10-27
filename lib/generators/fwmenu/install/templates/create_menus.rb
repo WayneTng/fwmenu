@@ -1,10 +1,10 @@
 class Create<%= table_name.camelize %> < ActiveRecord::Migration
   def self.up
     create_table :<%= table_name %> do |t|
-      t.string   "title"
-      t.text     "description"
-      t.string   "position" 
-      t.booleean "published" 
+      t.string    "title"
+      t.text      "description"
+      t.string    "position" 
+      t.boolean   "published", default: true
       t.timestamps
     end
   end

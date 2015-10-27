@@ -4,7 +4,10 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
       t.string   "title"
       t.text     "link" 
       t.timestamps
+      t.references :<%= file_name %>
     end
+
+    add_index :<%= file_name %>_items, :<%= file_name %>_id
   end
 
   def self.down
