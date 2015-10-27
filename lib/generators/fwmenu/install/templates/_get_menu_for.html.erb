@@ -1,0 +1,8 @@
+<% "#{table_name}" = "get_#{table_name}_for" %>
+<% if "#{table_name}".present? %>
+  <% "#{table_name}".each do |"#{file_name}"| %>
+    <% content_for "#{file_name}".position do %>
+      <%= raw("#{file_name}".description) %>
+    <% end %>
+  <% end %>
+<% end %>
