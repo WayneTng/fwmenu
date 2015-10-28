@@ -19,6 +19,7 @@ module Fwmenu
       def copy_migrations
         migration_template "create_menus.rb", "db/migrate/create_#{file_name}s.rb"
         migration_template "create_menu_items.rb", "db/migrate/create_#{file_name}_items.rb"
+        migration_template "add_reference_menu_items_to_menu_item.rb", "db/migrate/add_reference_#{file_name}_items_to_#{file_name}_item.rb"
       end
 
       def copy_initializer_file
