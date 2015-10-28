@@ -12,7 +12,7 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
       t.references :<%= file_name %>
       t.references :<%= file_name %>_items
     end
-    add_reference :<%= file_name %>_items, :<%= file_name %>_item, index: true
+    
     add_index :<%= file_name %>_items, :<%= file_name %>_id
   end
 
