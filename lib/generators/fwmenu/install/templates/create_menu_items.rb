@@ -5,9 +5,9 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
       t.string     "link"
       t.string     "controller_name" 
       t.string     "action_name"
-      t.interger   "parent_id", default: 0
-      t.interger   "show_id"
-      t.interger   "level", default: 1
+      t.integer    "parent_id", default: 0
+      t.integer    "show_id"
+      t.integer    "level", default: 1
       t.string     "type", default: :internal
       t.timestamps
       t.references :<%= file_name %>
