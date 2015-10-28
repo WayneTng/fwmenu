@@ -1,8 +1,14 @@
 class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
   def self.up
     create_table :<%= file_name %>_items do |t|
-      t.string   "title"
-      t.text     "link" 
+      t.string    "title"
+      t.string     "link"
+      t.string     "controller_name" 
+      t.string     "action_name"
+      t.interger   "parent_id", default: 0
+      t.interger   "show_id"
+      t.interger   "level", default: 1
+      t.string     "type", default: :internal
       t.timestamps
       t.references :<%= file_name %>
     end
