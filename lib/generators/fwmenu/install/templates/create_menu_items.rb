@@ -3,12 +3,11 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
     create_table :<%= file_name %>_items do |t|
       t.string    "title"
       t.string     "link"
-      t.string     "controller_name" 
-      t.string     "action_name"
-      t.integer    "parent_id", default: 0
-      t.integer    "show_id"
+      t.string     "page" 
+      t.integer    "parent", default: 0
+      t.integer    "show"
       t.integer    "level", default: 1
-      t.boolean    "group"
+      t.boolean    "internal_link", default: true
       t.timestamps
       t.references :<%= file_name %>
     end
