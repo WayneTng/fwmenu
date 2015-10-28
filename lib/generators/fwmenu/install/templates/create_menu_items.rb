@@ -8,7 +8,7 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
       t.integer    "parent_id", default: 0
       t.integer    "show_id"
       t.integer    "level", default: 1
-      t.string     "type", default: :internal
+      t.boolean    "group"
       t.timestamps
       t.references :<%= file_name %>
     end
