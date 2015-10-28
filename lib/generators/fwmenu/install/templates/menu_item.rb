@@ -5,5 +5,5 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 
 	belongs_to :<%= file_name %>
 
-	enumerize :position, in: Rails.application.routes.routes.map(&:defaults).reject!(&:blank?).inject([]){|b, a| b << "#{a[:controller]}:#{a[:action]}" }.sort
+	enumerize :page, in: Rails.application.routes.routes.map(&:defaults).reject!(&:blank?).inject([]){|b, a| b << "#{a[:controller]}:#{a[:action]}" }.sort
 end

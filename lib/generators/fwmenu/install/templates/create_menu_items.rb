@@ -4,12 +4,13 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
       t.string    "title"
       t.string     "link"
       t.string     "page" 
-      t.integer    "parent", default: 0
+      
       t.integer    "show"
       t.integer    "level", default: 1
       t.boolean    "internal_link", default: true
       t.timestamps
       t.references :<%= file_name %>
+      t.references :<%= file_name %>_items
     end
 
     add_index :<%= file_name %>_items, :<%= file_name %>_id
