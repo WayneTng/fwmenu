@@ -1,5 +1,5 @@
 module <%= class_name %>Helper
-  def get_menus_for
+  def get_<%= table_name %>_for
     <%= class_name %>.where(published: true).where("length(<%= table_name %>.position) > 0")
   end
 
