@@ -9,8 +9,8 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
     column :show
     column :level
     column :internal_link
-    column "Parent", :<%= file_name %>_item
-    column :<%= file_name %>
+    column "Parent", :<%= file_name %>_item, :sortable => '<%= file_name %>_items.<%= file_name %>_item_id'
+    column "<%= file_name.camelize %>", :<%= file_name %>, :sortable => '<%= file_name %>s.title'
   end
 
 	form do |f|
@@ -22,7 +22,16 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
       f.input :show, label: "Id (Only for other components)"
       f.input :article, label: "Articles (Only for article page)"
       f.input :internal_link
-      f.input :<%= file_name %>_item, label: "Parent"
+      f.input :<%= file_name %>_item, label: "Parent", as: :select, collection: <%= file_name.camelize %>Item.includes(:<%= file_name %>_item, :<%= file_name %>).all.map { |i| 
+                                                                                                              a = [i.title, i.id]
+                                                                                                              parent = i
+                                                                                                              while parent.<%= file_name %>_item.present? do
+                                                                                                                a[0] = "#{parent.<%= file_name %>_item.title} / #{a[0]}"
+                                                                                                                parent = parent.<%= file_name %>_item
+                                                                                                              end
+                                                                                                              a[0] = "#{parent.<%= file_name %>.title} / #{a[0]}" if parent.<%= file_name %>.present?
+                                                                                                              a
+                                                                                                            }.sort
     end
     actions
   end
