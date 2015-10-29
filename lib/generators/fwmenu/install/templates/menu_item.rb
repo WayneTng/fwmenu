@@ -8,8 +8,8 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 	has_many 	 :<%= file_name %>_items
 	belongs_to :article
 
-	enumerize :page, in: Rails.application.routes.routes.collect {|r| r.path.spec.to_s }.compact.uniq.delete_if{|i|i.include? "admin" or i.include? "rails" }.sort
-	# enumerize :page, in: Rails.app lication.routes.routes.map(&:defaults).reject!(&:blank?).inject([]){|b, a| b << "#{a[:controller]}:#{a[:action]}" }.delete_if{|i|i.include? "admin"}.sort
+	enumerize :page, in: Rails.application.routes.routes.collect {|r| r.path.spec.to_s.gsub("(.:format)", "") }.compact.uniq.delete_if{|i|i.include? "admin" or i.include? "rails" }.sort
+	
 	before_save :set_level
 
 	def set_level
