@@ -9,7 +9,7 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
     column :show
     column :level
     column :internal_link
-    column :<%= file_name %>_item
+    column "Parent", :<%= file_name %>_item
     column :<%= file_name %>
   end
 
