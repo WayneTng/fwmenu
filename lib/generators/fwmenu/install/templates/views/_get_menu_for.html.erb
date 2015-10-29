@@ -1,8 +1,0 @@
-<% menus = get_menus_for %>
-<% if menus.present? %>
-  <% menus.each do |menu| %>
-    <% content_for menu.position do %>
-      <%= raw(menu.description) %>
-    <% end %>
-  <% end %>
-<% end %>
