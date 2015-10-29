@@ -18,7 +18,7 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
     	f.input :<%= file_name %>
       f.input :title
       f.input :link
-      f.input :page, as: :select, collection: Rails.application.routes.routes.collect {|r| r.path.spec.to_s }.compact.uniq.delete_if{|i|i.include? "admin" or i.include? "rails" }.sort
+      f.input :page, as: :select, collection: Rails.application.routes.routes.collect {|r| r.path.spec.to_s.gsub("(.:format)", "") }.compact.uniq.delete_if{|i|i.include? "admin" or i.include? "rails" }.sort
       f.input :show
       f.input :article, label: "Articles (Only for article page)"
       f.input :internal_link
