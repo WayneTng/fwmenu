@@ -1,6 +1,6 @@
 module <%= class_name %>Helper
   def get_<%= table_name %>_for
-    <%= class_name %>.where(published: true).where("length(<%= table_name %>.position) > 0")
+    <%= class_name %>.includes(:<%= file_name %>_items).where(published: true).where("length(<%= table_name %>.position) > 0")
   end
 
   def get_link(item)
