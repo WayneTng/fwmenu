@@ -13,6 +13,12 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
     column "<%= file_name.camelize %>", :<%= file_name %>, :sortable => '<%= file_name %>s.title'
   end
 
+  controller do
+    def scoped_collection
+      end_of_association_chain.includes(:<%= file_name %>)
+    end
+  end
+
 	form do |f|
     f.inputs 'Create News' do
     	f.input :<%= file_name %>
