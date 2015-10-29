@@ -9,8 +9,26 @@ And then execute:
 
     $ bundle
 
+    $ rails g fwmenu:install model_name
+
+    $ rake db:migrate
+
+Add this line to routes.rb 
+
+```ruby
+resources :articles, only: [:show]
+```
+
+    $ rake routes
+
 ## Usage
 
+Login admin to create article and menu 
+
+Support :
+
+		Active Admin
+		Rails Admin
 
 ## Contributing
 
