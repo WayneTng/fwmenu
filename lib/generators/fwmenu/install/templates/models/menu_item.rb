@@ -45,7 +45,7 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 	end
 
 	def validation_custom
-		arr = array_<%= file_name %>items_by_<%= file_name %>_item(self.<%= file_name %>.<%= file_name %>_items.includes(:<%= file_name %>_item))
+		arr = array_<%= file_name %>_items_by_<%= file_name %>_item(self.<%= file_name %>.<%= file_name %>_items.includes(:<%= file_name %>_item))
 
 		if internal_link
 			errors.add(:page, "Please fill up this field") 		unless page.present?
