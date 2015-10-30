@@ -3,7 +3,15 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
 
   index do
     actions
-    column :title
+    column :title, sorting: "title" do |<%= file_name %>_item|
+      a = <%= file_name %>_item.title
+      parent = <%= file_name %>_item
+      while parent.<%= file_name %>_item.present? do
+        a[0] = "---- #{a[0]}"
+        parent = parent.<%= file_name %>_item
+      end
+      a
+    end
     column "External Link", :link
     column :page
     column :show
