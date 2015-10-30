@@ -56,6 +56,6 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 		end
 
 		errors.add(:<%= file_name %>_item, "Please select parent belong to <%= file_name %> group") if <%= file_name %>_item.present? && <%= file_name %>.id != <%= file_name %>_item.<%= file_name %>.id
-		errors.add(:<%= file_name %>_item, "Please don't select parent is sub<%= file_name %> of this item or itself") if (<%= file_name %>_item.present? && get_child(self, arr).map(&:id).include?(<%= file_name %>_item_id)) || id == <%= file_name %>_item_id
+		errors.add(:<%= file_name %>_item, "Please don't select parent is sub<%= file_name %> of this item or itself") if <%= file_name %>_item.present? && (get_child(self, arr).map(&:id).include?(<%= file_name %>_item_id) || id == <%= file_name %>_item_id)
 	end
 end
