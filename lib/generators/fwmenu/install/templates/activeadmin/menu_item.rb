@@ -4,18 +4,17 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
   index do
     actions
     column :title
-    column :link
+    column "External Link", :link
     column :page
     column :show
-    column :level
     column :internal_link
-    column "Parent", :<%= file_name %>_item, :sortable => '<%= file_name %>_items.<%= file_name %>_item_id'
+    column "Parent", :<%= file_name %>_item, :sortable => '<%= file_name %>_items_<%= file_name %>_items.title'
     column "<%= file_name.camelize %>", :<%= file_name %>, :sortable => '<%= file_name %>s.title'
   end
 
   controller do
     def scoped_collection
-      end_of_association_chain.includes(:<%= file_name %>)
+      end_of_association_chain.includes(:<%= file_name %>, :<%= file_name %>_item)
     end
   end
 
@@ -23,7 +22,7 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
     f.inputs 'Create News' do
     	f.input :<%= file_name %>
       f.input :title
-      f.input :link
+      f.input :link, label: "External Link"
       f.input :page, as: :select, collection: Rails.application.routes.routes.collect {|r| r.path.spec.to_s.gsub("(.:format)", "") }.compact.uniq.delete_if{|i|i.include? "admin" or i.include? "rails" }.sort
       f.input :show, label: "Id (Only for other components)"
       f.input :article, label: "Articles (Only for article page)"
