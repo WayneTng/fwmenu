@@ -5,7 +5,7 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
       t.string     "link"
       t.string     "page" 
       
-      t.integer    "show"
+      t.string    "show"
       t.integer    "level", default: 1
       t.boolean    "internal_link", default: true
       t.timestamps
