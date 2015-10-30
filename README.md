@@ -9,7 +9,7 @@ And then execute:
 
     $ bundle
 
-    $ rails g fwmenu:install model_name
+    $ rails g fwmenu:install menu
 
     $ rake db:migrate
 
@@ -25,16 +25,16 @@ resources :articles, only: [:show]
 
 Login admin to create article and menu 
 
-Add this line to your layout to provide content to positions. 
+Add this line to your layout to provide data to positions. 
 
 ```ruby
-= render '/get_{model_name}_for'
+= render '/get_menu_for'
 ```
 Add this line to place you want to put menu.
 
 ```ruby
-- if content_for? "your_position"
-  = yield "your_position"
+- if content_for? "menu_position"
+  = yield "menu_position"
 ```
 
 Support :
