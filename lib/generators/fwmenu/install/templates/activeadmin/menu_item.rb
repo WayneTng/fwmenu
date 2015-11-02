@@ -36,7 +36,7 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
       f.input :page, as: :select, collection: Rails.application.routes.routes.collect {|r| r.path.spec.to_s.gsub("(.:format)", "") }.compact.uniq.delete_if{|i|i.include? "admin" or i.include? "rails" }.sort
       f.input :show, label: "Id (Only for other components)"
       f.input :article, label: "Articles (Only for article page)"
-      f.input :category, label: "categories (Only for category page)"
+      f.input :category, label: "Categories (Only for category page)"
       f.input :internal_link
       f.input :<%= file_name %>_item, label: "Parent", as: :select, collection: <%= file_name.camelize %>Item.includes(:<%= file_name %>_item, :<%= file_name %>).all.map { |i| 
                                                                                                               a = [i.title, i.id]
