@@ -7,6 +7,7 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 	belongs_to :<%= file_name %>_item
 	has_many 	 :<%= file_name %>_items
 	belongs_to :article
+	belongs_to :category
 
 	before_save :set_level
 	before_validation :validation_custom
@@ -70,7 +71,8 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 		if internal_link
 			errors.add(:page, "Please fill up this field") 		unless page.present?
 			errors.add(:article, "Please fill up this field") if page.to_s == "/articles/:id" && article.nil?
-			errors.add(:show, "Please fill up this field") 		if page.to_s != "/articles/:id" && show.nil? && page.include?(":id")
+			errors.add(:category, "Please fill up this field") if page.to_s == "/categories/:id" && category.nil?
+			errors.add(:show, "Please fill up this field") 		if page.to_s != "/categories/:id" && page.to_s != "/articles/:id" && show.nil? && page.include?(":id")
 		else
 			errors.add(:link, "Please fill up this field") unless link.present?
 		end
