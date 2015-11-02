@@ -36,7 +36,7 @@ Login admin to create positions, categories, articles, menus, menuitems
 Add this line to your layout to provide data to positions. 
 
 ```ruby
-= render '/get_menu_for'
+= render '/get_content_for'
 ```
 Add this line to place you want to put menu.
 
