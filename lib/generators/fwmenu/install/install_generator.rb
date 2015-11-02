@@ -24,6 +24,7 @@ module Fwmenu
         migration_template "migration/create_categories.rb", "db/migrate/create_categories.rb"
         migration_template "migration/add_reference_menu_items_to_menu_item.rb", "db/migrate/add_reference_#{file_name}_items_to_#{file_name}_item.rb"
         migration_template "migration/add_reference_menu_items_to_article.rb", "db/migrate/add_reference_#{file_name}_items_to_article.rb"
+        migration_template "migration/add_reference_menu_items_to_category.rb", "db/migrate/add_reference_#{file_name}_items_to_category.rb"
         migration_template "migration/add_reference_articles_to_category.rb", "db/migrate/add_reference_articles_to_category.rb"
       end
 
