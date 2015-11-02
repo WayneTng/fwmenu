@@ -11,20 +11,25 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 
 	before_save :set_level
 	before_validation :validation_custom
-	after_save :save_<%= file_name %>_to_module
+	after_save :save_<%= file_name %>s_to_module
 
-	def save_<%= file_name %>_to_module
-		items = {"items" => [<%= file_name %>]}
+	def save_<%= file_name %>s_to_module
+		save_<%= file_name %>_to_module(<%= file_name %>) if <%= file_name %>.present?
+		save_menu_to_module(<%= file_name.camelize %>.find(<%= file_name %>_id_was)) if <%= file_name %>_id_was.present?
+		true
+	end
+
+	def save_<%= file_name %>_to_module(single_menu)
+		items = {"items" => [single_<%= file_name %>]}
 		html = render_anywhere("<%= file_name %>", items)
-		mod_<%= file_name %>s = Place.where(position: <%= file_name %>.position)
-
+		html = "<ul></ul>" if html.empty?
+		mod_<%= file_name %>s = Place.where(position: single_<%= file_name %>.position)
 		if mod_<%= file_name %>s.size == 1
 			mod_<%= file_name %>s.first.update(description: html)
 		else		
-			mod_<%= file_name %> = Place.new(title: title, description: html, page: "All", position: <%= file_name %>.position)
+			mod_<%= file_name %> = Place.new(title: title, description: html, page: "All", position: single_<%= file_name %>.position)
 			mod_<%= file_name %>.save
 		end
-		true
 	end
 
 	def render_anywhere(partial, assigns = {}) 
