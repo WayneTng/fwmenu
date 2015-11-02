@@ -1,2 +1,11 @@
 = "latest.html.erb"
-.description = @article.description
+- if @category.articles.present?
+	br
+	p = "No article found"
+- else 
+	- @category.articles.each_slice(4) do |articles|
+		- articles.each do |article|
+			.col-sm-3
+				h2 = link_to article.title, article_path(article)
+				.description = article.description
+		.clear
