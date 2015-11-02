@@ -33,5 +33,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency('enumerize')
   spec.add_dependency('friendly_id', '5.1.0')
   spec.add_dependency('slim-rails')
-  spec.add_dependency('fwcontent', :git => 'https://github.com/brianfwz/fwcontent.git')
 end
