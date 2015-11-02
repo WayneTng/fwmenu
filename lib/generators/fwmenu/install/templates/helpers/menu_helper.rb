@@ -6,7 +6,7 @@ module <%= class_name %>Helper
   def get_link(item)
 		if item.internal_link && item.page.present?
 			if item.page.to_s == "/articles/:id" && item.article.present?
-				link_to item.title, article_url(item.article)
+				link_to item.title, Rails.application.routes.url_helpers.article_path(item.article)
 			elsif item.page.include? ":id"
 				link = item.page.gsub(":id", item.show.to_s)
 				link_to item.title, link
