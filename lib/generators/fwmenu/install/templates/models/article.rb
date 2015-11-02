@@ -1,8 +1,9 @@
 class Article < ActiveRecord::Base
 	extend Enumerize
-	validates :title, :description, presence: true
-	
 	extend FriendlyId
+  validates :title, :description, presence: true
+  
+  belongs_to :category
   
   friendly_id :title, use: [:slugged, :finders]
 
