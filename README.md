@@ -3,7 +3,10 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'fwmenu', :git => 'https://github.com/brianfwz/fwmenu.git'
+gem 'fwmenu', :git => 'https://github.com/brianfwz/fwmenu.git', :branch => "v2"
+```
+```ruby
+gem 'fwcontent', :git => 'https://github.com/brianfwz/fwcontent.git'
 ```
 And then execute:
 
@@ -11,12 +14,17 @@ And then execute:
 
     $ rails g fwmenu:install menu
 
+    $ rails g fwcontent:install place
+
     $ rake db:migrate
 
-Add this line to routes.rb 
+Add this lines to routes.rb 
 
 ```ruby
 resources :articles, only: [:show]
+```
+```ruby
+resources :categories, only: [:show]
 ```
 
     $ rake routes
