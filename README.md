@@ -12,9 +12,9 @@ And then execute:
 
     $ bundle
 
-    $ rails g fwmenu:install menu
-
     $ rails g fwcontent:install place
+
+    $ rails g fwmenu:install menu
 
     $ rake db:migrate
 
