@@ -35,7 +35,7 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 	end
 
 	def set_level
-		self.level = self.<%= file_name %>_item.level + 1 if self.<%= file_name %>_item.present?
+		self.level = self.<%= file_name %>_item.present? ? self.<%= file_name %>_item.level + 1 : 1
 	end
 
 	def array_<%= file_name %>_items_by_<%= file_name %>_item(items)
