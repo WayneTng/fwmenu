@@ -1,5 +1,5 @@
 ActiveAdmin.register <%= file_name.camelize %>Item do
-	permit_params :title, :link, :show, :page, :level, :internal_link, :<%= file_name %>_id, :<%= file_name %>_item_id, :article_id
+	permit_params :title, :link, :show, :page, :level, :internal_link, :<%= file_name %>_id, :<%= file_name %>_item_id, :article_id, :category_id
 
   index do
     actions
@@ -15,6 +15,8 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
     column "External Link", :link
     column :page
     column :show
+    column :article
+    column :category
     column :internal_link
     column "Parent", :<%= file_name %>_item, :sortable => '<%= file_name %>_items_<%= file_name %>_items.title'
     column "<%= file_name.camelize %>", :<%= file_name %>, :sortable => '<%= file_name %>s.title'
@@ -34,6 +36,7 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
       f.input :page, as: :select, collection: Rails.application.routes.routes.collect {|r| r.path.spec.to_s.gsub("(.:format)", "") }.compact.uniq.delete_if{|i|i.include? "admin" or i.include? "rails" }.sort
       f.input :show, label: "Id (Only for other components)"
       f.input :article, label: "Articles (Only for article page)"
+      f.input :category, label: "categories (Only for category page)"
       f.input :internal_link
       f.input :<%= file_name %>_item, label: "Parent", as: :select, collection: <%= file_name.camelize %>Item.includes(:<%= file_name %>_item, :<%= file_name %>).all.map { |i| 
                                                                                                               a = [i.title, i.id]
