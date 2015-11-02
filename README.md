@@ -31,7 +31,7 @@ resources :categories, only: [:show]
 
 ## Usage
 
-Login admin to create article and menu 
+Login admin to create positions, categories, articles, menus, menuitems 
 
 Add this line to your layout to provide data to positions. 
 
