@@ -48,11 +48,7 @@ module Fwmenu
         copy_file "views/categories/show/latest.html.slim", "app/views/categories/show/latest.html.slim"
 
         if active.include? "activeadmin"
-          template "activeadmin/model/menu_item.rb", "app/models/#{file_name}_item.rb"
-          template "activeadmin/menu.rb", "app/admin/#{file_name}.rb"
-          template "activeadmin/menu_item.rb", "app/admin/#{file_name}_item.rb"
-          template "activeadmin/article.rb", "app/admin/article.rb"
-          template "activeadmin/category.rb", "app/admin/category.rb"
+          
         else
           template "models/menu_item.rb", "app/models/#{file_name}_item.rb"
         end

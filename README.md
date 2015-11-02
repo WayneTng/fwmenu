@@ -48,6 +48,13 @@ Add this line to place you want to put menu.
 Support :
 
 		Active Admin
+
+				$ rails g fwcontent:admin place
+
+    		$ rails g fwmenu:admin menu
+
+
+
 		Rails Admin
 
 ## Contributing
