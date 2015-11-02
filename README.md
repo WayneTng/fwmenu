@@ -10,13 +10,13 @@ gem 'fwcontent', :git => 'https://github.com/brianfwz/fwcontent.git'
 ```
 And then execute:
 
-    $ bundle
+		$ bundle
 
-    $ rails g fwcontent:install place
+		$ rails g fwcontent:install place
 
-    $ rails g fwmenu:install menu
+		$ rails g fwmenu:install menu
 
-    $ rake db:migrate
+		$ rake db:migrate
 
 Add this lines to routes.rb 
 
@@ -27,7 +27,7 @@ resources :articles, only: [:show]
 resources :categories, only: [:show]
 ```
 
-    $ rake routes
+		$ rake routes
 
 ## Usage
 
@@ -42,7 +42,7 @@ Add this line to place you want to put menu.
 
 ```ruby
 - if content_for? "menu_position"
-  = yield "menu_position"
+	= yield "menu_position"
 ```
 
 Support :
@@ -51,7 +51,7 @@ Support :
 
 				$ rails g fwcontent:admin place
 
-    		$ rails g fwmenu:admin menu
+				$ rails g fwmenu:admin menu
 
 
 
