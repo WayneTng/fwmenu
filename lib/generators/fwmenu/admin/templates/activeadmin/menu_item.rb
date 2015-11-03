@@ -48,6 +48,8 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
                                                                                                               a[0] = "#{parent.<%= file_name %>.title} / #{a[0]}" if parent.<%= file_name %>.present?
                                                                                                               a
                                                                                                             }.sort
+      f.input :ordering
+      f.input :target, as: :select, collection: ["_self","_blank","_parent","_top"], include_blank: false
     end
     actions
   end
