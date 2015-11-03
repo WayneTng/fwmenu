@@ -9,5 +9,6 @@ ActiveAdmin.register Article do
     column :category
     column :created_at
     column :updated_at
+    column :ordering
   end
 end
