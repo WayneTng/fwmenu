@@ -5,7 +5,8 @@ class CreateArticles < ActiveRecord::Migration
       t.text     "short_description"
       t.text     "description"
       t.string   "slug", unique: true
-      t.string   "layout"    
+      t.string   "layout"
+      t.integer  "ordering", default: 1    
       t.timestamps
     end
   end

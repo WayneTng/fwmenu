@@ -3,8 +3,9 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
     create_table :<%= file_name %>_items do |t|
       t.string    "title"
       t.string     "link"
-      t.string     "page" 
-      
+      t.string     "page"
+      t.string     "target", default: "_self"  
+      t.integer    "ordering", default: 1
       t.string    "show"
       t.integer    "level", default: 1
       t.boolean    "internal_link", default: true

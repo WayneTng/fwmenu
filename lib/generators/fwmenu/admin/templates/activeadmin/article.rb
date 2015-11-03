@@ -1,5 +1,5 @@
 ActiveAdmin.register Article do
-	permit_params :title, :description, :slug, :layout, :category_id
+	permit_params :title, :description, :slug, :layout, :category_id, :ordering
 
 	index do
     actions
