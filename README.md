@@ -25,6 +25,8 @@ resources :articles, only: [:show]
 resources :categories, only: [:show]
 ```
 
+And then execute:
+
 		$ rake routes
 
 		$ rails g fwcontent:admin place
