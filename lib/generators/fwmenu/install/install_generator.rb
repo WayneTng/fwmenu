@@ -18,30 +18,10 @@ module Fwmenu
       end
 
       def copy_migrations
-        if ActiveRecord::Base.connection.table_exists? "#{file_name}s"
-          migration_template "migration/change_menus.rb", "db/migrate/change_#{file_name}s.rb"
-        else
-          migration_template "migration/create_menus.rb", "db/migrate/create_#{file_name}s.rb"
-        end
-
-        if ActiveRecord::Base.connection.table_exists? "#{file_name}s"
-          migration_template "migration/change_menu_items.rb", "db/migrate/change_#{file_name}_items.rb"
-        else
-          migration_template "migration/create_menu_items.rb", "db/migrate/create_#{file_name}_items.rb"
-        end
-        
-        if ActiveRecord::Base.connection.table_exists? "articles"
-          migration_template "migration/change_articles.rb", "db/migrate/change_articles.rb"
-        else
-          migration_template "migration/create_articles.rb", "db/migrate/create_articles.rb"
-        end
-        
-        if ActiveRecord::Base.connection.table_exists? "categories"
-          migration_template "migration/change_categories.rb", "db/migrate/change_categories.rb"
-        else
-          migration_template "migration/create_categories.rb", "db/migrate/create_categories.rb"
-        end
-        
+        migration_template "migration/create_menus.rb", "db/migrate/create_#{file_name}s.rb"
+        migration_template "migration/create_menu_items.rb", "db/migrate/create_#{file_name}_items.rb"
+        migration_template "migration/create_articles.rb", "db/migrate/create_articles.rb"
+        migration_template "migration/create_categories.rb", "db/migrate/create_categories.rb"
         migration_template "migration/add_reference_menu_items_to_menu_item.rb", "db/migrate/add_reference_#{file_name}_items_to_#{file_name}_item.rb"
         migration_template "migration/add_reference_menu_items_to_article.rb", "db/migrate/add_reference_#{file_name}_items_to_article.rb"
         migration_template "migration/add_reference_menu_items_to_category.rb", "db/migrate/add_reference_#{file_name}_items_to_category.rb"

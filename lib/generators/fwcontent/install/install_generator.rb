@@ -17,17 +17,8 @@ module Fwcontent
       end
 
       def copy_migrations
-        if ActiveRecord::Base.connection.table_exists? "#{file_name}s"
-          migration_template "change_contents.rb", "db/migrate/change_#{file_name}s.rb"
-        else
-          migration_template "create_contents.rb", "db/migrate/create_#{file_name}s.rb"
-        end
-
-        if ActiveRecord::Base.connection.table_exists? "positions"
-          migration_template "change_positions.rb", "db/migrate/change_positions.rb"
-        else
-          migration_template "create_positions.rb", "db/migrate/create_positions.rb"
-        end
+        migration_template "create_contents.rb", "db/migrate/create_#{file_name}s.rb"
+        migration_template "create_positions.rb", "db/migrate/create_positions.rb"
       end
 
       def copy_initializer_file
