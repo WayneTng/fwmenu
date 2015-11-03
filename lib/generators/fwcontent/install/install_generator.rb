@@ -26,7 +26,6 @@ module Fwcontent
         template "content.rb", "app/models/#{file_name}.rb"
         template "position.rb", "app/models/position.rb"
         copy_file "_get_content_for.html.slim", "app/views/_get_content_for.html.slim"
-        template "content_helper.rb", "app/helpers/#{file_name}_helper.rb"
       end
     end
   end

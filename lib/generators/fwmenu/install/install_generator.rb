@@ -34,7 +34,6 @@ module Fwmenu
         template "models/menu.rb", "app/models/#{file_name}.rb"
         template "models/article.rb", "app/models/article.rb"
         template "models/category.rb", "app/models/category.rb"
-        template "helpers/menu_helper.rb", "app/helpers/#{file_name}_helper.rb"
         copy_file "controllers/articles_controller.rb", "app/controllers/articles_controller.rb"
         copy_file "controllers/categories_controller.rb", "app/controllers/categories_controller.rb"
         template "views/_get_menu_for.html.slim", "app/views/_get_#{file_name}_for.html.slim"
