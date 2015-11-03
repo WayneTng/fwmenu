@@ -1,6 +1,6 @@
 class Create<%= table_name.camelize %> < ActiveRecord::Migration
   def self.up
-    create_table :<%= table_name %> do |t|
+    create_table :<%= table_name %>, force: true do |t|
       t.string    "title"
       t.text      "description"
       t.string    "position" 
