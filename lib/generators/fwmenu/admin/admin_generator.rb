@@ -17,6 +17,9 @@ module Fwmenu
           template "activeadmin/article.rb", "app/admin/article.rb"
           template "activeadmin/category.rb", "app/admin/category.rb"
         end
+        if active.include? "rails_admin"
+          template "rails_admin/model/menu.rb", "app/models/#{file_name}.rb"
+        end
       end
     end
   end

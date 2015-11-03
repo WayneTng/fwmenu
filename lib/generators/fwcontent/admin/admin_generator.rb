@@ -13,6 +13,9 @@ module Fwcontent
           template "activeadmin/content.rb", "app/admin/#{file_name}.rb"
           template "activeadmin/position.rb", "app/admin/position.rb"
         end
+        if active.include? "rails_admin"
+          template "rails_admin/model/content.rb", "app/models/#{file_name}.rb"
+        end
       end
     end
   end
