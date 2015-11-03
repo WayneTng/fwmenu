@@ -27,6 +27,10 @@ resources :categories, only: [:show]
 
 		$ rake routes
 
+		$ rails g fwcontent:admin place
+
+		$ rails g fwmenu:admin menu
+
 ## Usage
 
 Login admin to create positions, categories, articles, menus, menuitems 
@@ -45,15 +49,9 @@ Add this line to place you want to put menu.
 
 Support :
 
-		Active Admin
+	- Active Admin
 
-				$ rails g fwcontent:admin place
-
-				$ rails g fwmenu:admin menu
-
-
-
-		Rails Admin
+	- Rails Admin
 
 ## Contributing
 
