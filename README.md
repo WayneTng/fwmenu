@@ -5,9 +5,7 @@ Add this line to your application's Gemfile:
 ```ruby
 gem 'fwmenu', :git => 'https://github.com/brianfwz/fwmenu.git', :branch => "v2"
 ```
-```ruby
-gem 'fwcontent', :git => 'https://github.com/brianfwz/fwcontent.git'
-```
+
 And then execute:
 
 		$ bundle

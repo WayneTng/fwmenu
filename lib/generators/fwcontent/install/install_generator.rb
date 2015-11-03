@@ -1,6 +1,6 @@
 require 'rails/generators/migration'
 
-module Fwmenu
+module Fwcontent
   module Generators
     class InstallGenerator < ::Rails::Generators::NamedBase
       include Rails::Generators::Migration
