@@ -1,6 +1,6 @@
 class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
   def self.up
-    create_table :<%= file_name %>_items, force: true do |t|
+    create_table :<%= file_name %>_items do |t|
       t.string    "title"
       t.string     "link"
       t.string     "page" 
