@@ -23,6 +23,13 @@ class <%= class_name %> < ActiveRecord::Base
 		end
 	end
 
+	def render_anywhere(partial, assigns = {}) 
+		view = ActionView::Base.new(ActionController::Base.view_paths, assigns)
+		view.extend ApplicationHelper
+		view.extend <%= file_name.camelize %>Helper
+		view.render(:partial => partial)
+	end
+
 	rails_admin do
 		edit do
 			field :title

@@ -22,4 +22,11 @@ class <%= class_name %> < ActiveRecord::Base
 			mod_<%= file_name %>.save
 		end
 	end
+
+	def render_anywhere(partial, assigns = {}) 
+		view = ActionView::Base.new(ActionController::Base.view_paths, assigns)
+		view.extend ApplicationHelper
+		view.extend <%= file_name.camelize %>Helper
+		view.render(:partial => partial)
+	end
 end
