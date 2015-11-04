@@ -1,15 +1,21 @@
 require 'spec_helper'
-require_relative '../../app/helpers/menu_helper.rb'
-require_relative '../../app/helpers/place_helper.rb'
 
-describe MenuHelper do
-  it 'should include MenuHelper' do
-   	should be MenuHelper
+describe "MenuHelper", type: :generator do
+  it 'should have get_menus_for function' do
+   	assert_file "./app/helpers/menu_helper.rb" do |helper|
+		  assert_instance_method :get_menus_for, helper do |get_menus_for|
+		    assert_match(/Menu\.includes/, get_menus_for)
+		  end
+		end
   end
 end
 
-describe PlaceHelper do
-  it 'should include PlaceHelper' do
-   	should be PlaceHelper
+describe "PlaceHelper", type: :generator do
+  it 'should have get_content_for function' do
+   	assert_file "./app/helpers/place_helper.rb" do |helper|
+		  assert_instance_method :get_content_for, helper do |get_content_for|
+		    assert_match(/Place\.where/, get_content_for)
+		  end
+		end
   end
 end
