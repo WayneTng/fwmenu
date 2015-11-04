@@ -1,6 +1,6 @@
 - if <%= file_name %>_items.present?
 	ul
-		- <%= file_name %>_items.includes(:<%= file_name %>_items, :article).order(:ordering).each do |<%= file_name %>_item|
+		- <%= file_name %>_items.includes(:<%= file_name %>_items, :article).where(published: true).order(:ordering).each do |<%= file_name %>_item|
 			- if level == <%= file_name %>_item.level
 				li
 					= get_link(<%= file_name %>_item)

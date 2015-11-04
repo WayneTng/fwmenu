@@ -9,8 +9,9 @@ class Create<%= file_name.camelize %>Items < ActiveRecord::Migration
       t.string    "show"
       t.integer    "level", default: 1
       t.boolean    "internal_link", default: true
+      t.boolean   "published", default: true
       t.timestamps
-      t.references :<%= file_name %>
+      t.references :<%= file_name %>, index: true
     end
 
     add_index :<%= file_name %>_items, :<%= file_name %>_id
