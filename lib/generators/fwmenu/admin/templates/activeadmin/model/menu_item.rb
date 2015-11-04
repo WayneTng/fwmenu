@@ -15,7 +15,7 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 
 	def save_<%= file_name %>s_to_module
 		save_<%= file_name %>_to_module(<%= file_name %>) if <%= file_name %>.present?
-		save_menu_to_module(<%= file_name.camelize %>.find(<%= file_name %>_id_was)) if <%= file_name %>_id_was.present?
+		save_<%= file_name %>_to_module(<%= file_name.camelize %>.find(<%= file_name %>_id_was)) if <%= file_name %>_id_was.present?
 		true
 	end
 
