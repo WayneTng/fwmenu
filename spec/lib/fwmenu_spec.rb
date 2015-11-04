@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'fwmenu'
 require_relative '../../app/helpers/menu_helper.rb'
 require_relative '../../app/helpers/place_helper.rb'
 
