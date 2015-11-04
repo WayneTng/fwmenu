@@ -51,6 +51,7 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
                                                                                                               a
                                                                                                             }.sort
       f.input :ordering
+      f.input :published
       f.input :target, as: :select, collection: ["_self","_blank","_parent","_top"], include_blank: false
     end
     actions
