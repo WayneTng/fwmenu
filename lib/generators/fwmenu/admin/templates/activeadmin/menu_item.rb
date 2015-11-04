@@ -1,5 +1,5 @@
 ActiveAdmin.register <%= file_name.camelize %>Item do
-	permit_params :title, :link, :show, :page, :level, :internal_link, :<%= file_name %>_id, :<%= file_name %>_item_id, :article_id, :category_id, :ordering, :target
+	permit_params :title, :link, :show, :page, :level, :internal_link, :<%= file_name %>_id, :<%= file_name %>_item_id, :article_id, :category_id, :ordering, :target, :published
 
   index do
     actions
