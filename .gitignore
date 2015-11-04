@@ -6,4 +6,6 @@
 /doc/
 /pkg/
 /spec/reports/
+/spec/lib/generators/fwcontent/tmp/
+/spec/lib/generators/fwmenu/tmp/
 /tmp/
