@@ -3,7 +3,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'fwmenu', :git => 'https://github.com/brianfwz/fwmenu.git', :branch => "v2"
+gem 'fwmenu', :git => 'https://github.com/brianfwz/fwmenu.git'
 ```
 
 And then execute:
