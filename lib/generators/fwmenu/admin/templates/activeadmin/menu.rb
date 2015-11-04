@@ -6,7 +6,7 @@ ActiveAdmin.register <%= file_name.camelize %> do
       f.input :title
       f.input :description
       f.input :position, as: :select, collection: Position.all.map(&:title), include_blank: false
-      f.input :published
+      # f.input :published
     end
     actions
   end

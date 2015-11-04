@@ -39,7 +39,7 @@ class <%= class_name %> < ActiveRecord::Base
     			Position.all.map(&:title)
   			end
 			end
-			field :published
+			# field :published
 		end
 	end
 end
