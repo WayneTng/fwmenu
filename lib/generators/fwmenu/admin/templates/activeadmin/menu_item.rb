@@ -21,6 +21,7 @@ ActiveAdmin.register <%= file_name.camelize %>Item do
     column "Parent", :<%= file_name %>_item, :sortable => '<%= file_name %>_items_<%= file_name %>_items.title'
     column "<%= file_name.camelize %>", :<%= file_name %>, :sortable => '<%= file_name %>s.title'
     column :ordering
+    column :published
   end
 
   controller do
