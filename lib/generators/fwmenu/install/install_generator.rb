@@ -53,9 +53,11 @@ module Fwmenu
         end
       end
 
-      def setup_routes 
-        route "resources :articles, only: [:show]"
-        route "resources :categories, only: [:show]"
+      def setup_routes
+        if ENV["RAILS_ENV"] != "test"
+          route "resources :articles, only: [:show]"
+          route "resources :categories, only: [:show]"
+        end
       end
     end
   end
