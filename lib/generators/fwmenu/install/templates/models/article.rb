@@ -12,6 +12,6 @@ class Article < ActiveRecord::Base
   enumerize :layout, in: Dir.glob('app/views/articles/show/*').collect{|r| r.gsub("app/views/", "").split('.').first}
 
   def set_slug
-  	self.slug = title.parameterize unless slug.present?
+  	self.slug = title.parameterize if slug.blank? && title.present?
   end
 end
