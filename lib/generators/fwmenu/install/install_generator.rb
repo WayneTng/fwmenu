@@ -52,6 +52,11 @@ module Fwmenu
           template "models/menu_item.rb", "app/models/#{file_name}_item.rb"
         end
       end
+
+      def setup_routes 
+        route "resources :articles, only: [:show]"
+        route "resources :categories, only: [:show]"
+      end
     end
   end
 end
