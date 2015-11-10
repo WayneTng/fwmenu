@@ -2,6 +2,8 @@ class Article < ActiveRecord::Base
 	extend Enumerize
 	extend FriendlyId
   validates :title, :description, presence: true
+
+  validates :slug, uniqueness: true
   
   belongs_to :category
   

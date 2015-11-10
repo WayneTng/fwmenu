@@ -7,6 +7,8 @@ class Category < ActiveRecord::Base
 
 	validates :title, :description, presence: true
 
+	validates :slug, uniqueness: true
+
 	enumerize :layout, in: Dir.glob('app/views/categories/show/*').collect{|r| r.gsub("app/views/", "").split('.').first}
 
 	before_save :set_slug
