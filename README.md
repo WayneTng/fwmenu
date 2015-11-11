@@ -16,17 +16,6 @@ And then execute:
 
 		$ rake db:migrate
 
-Add this lines to routes.rb 
-
-```ruby
-resources :articles, only: [:show]
-```
-```ruby
-resources :categories, only: [:show]
-```
-
-And then execute:
-
 		$ rake routes
 
 		$ rails g fwcontent:admin place
@@ -54,6 +43,11 @@ Support :
 	- Active Admin
 
 	- Rails Admin
+
+
+Test : require rspec-rails, shoulda-matchers, factory_girl_rails
+
+		$ rails g fwmenu:rspec
 
 ## Contributing
 
