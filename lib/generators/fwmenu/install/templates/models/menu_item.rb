@@ -73,18 +73,18 @@ class <%= file_name.camelize %>Item < ActiveRecord::Base
 	end
 
 	def validation_custom
-		arr = array_<%= file_name %>_items_by_<%= file_name %>_item(self.<%= file_name %>.<%= file_name %>_items.includes(:<%= file_name %>_item))
+		arr = self.<%= file_name %>.present? ? array_<%= file_name %>_items_by_<%= file_name %>_item(self.<%= file_name %>.<%= file_name %>_items.includes(:<%= file_name %>_item)) : {}
 
 		if internal_link
 			errors.add(:page, "Please fill up this field") 		unless page.present?
 			errors.add(:article, "Please fill up this field") if page.to_s == "/articles/:id" && article.nil?
 			errors.add(:category, "Please fill up this field") if page.to_s == "/categories/:id" && category.nil?
-			errors.add(:show, "Please fill up this field") 		if page.to_s != "/categories/:id" && page.to_s != "/articles/:id" && show.nil? && page.include?(":id")
+			errors.add(:show, "Please fill up this field") 		if page.present? && page.to_s != "/categories/:id" && page.to_s != "/articles/:id" && show.nil? && page.include?(":id")
 		else
 			errors.add(:link, "Please fill up this field") unless link.present?
 		end
 
-		errors.add(:<%= file_name %>_item, "Please select parent belong to <%= file_name %> group") if <%= file_name %>_item.present? && <%= file_name %>.id != <%= file_name %>_item.<%= file_name %>.id
+		errors.add(:<%= file_name %>_item, "Please select parent belong to <%= file_name %> group") if <%= file_name %>_item.present? && <%= file_name %>.present? && <%= file_name %>.id != <%= file_name %>_item.<%= file_name %>.id
 		errors.add(:<%= file_name %>_item, "Please don't select parent is sub<%= file_name %> of this item or itself") if <%= file_name %>_item.present? && (get_child(self, arr).map(&:id).include?(<%= file_name %>_item_id) || id == <%= file_name %>_item_id)
 		errors.add(:<%= file_name %>, "Please can not change <%= file_name %> group.") if <%= file_name %>_id.present? && <%= file_name %>_id_was.present? && <%= file_name %>_item.present? && <%= file_name %>_id != <%= file_name %>_id_was
 	end
