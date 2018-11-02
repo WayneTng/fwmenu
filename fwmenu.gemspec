@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Menu manager for Rails.}
   spec.description   = %q{Menu manager for Rails.}
-  spec.homepage      = "TODO: https://github.com/brianfwz/fwmenu"
+  spec.homepage      = "https://github.com/brianfwz/fwmenu"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
